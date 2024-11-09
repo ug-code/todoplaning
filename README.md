@@ -44,6 +44,9 @@ php artisan app:register-tasks
 
 route:
 ```shell
+Api doc
+http://localhost:3000/request-docs
+
 view => 
 http://127.0.0.1:3000/todo/1  first mockup
 http://127.0.0.1:3000/todo/2  second mockup
