@@ -21,14 +21,23 @@ class TodoController extends Controller
         $this->todoService = $todoService;
     }
 
-    public function index($prodiverId): View|Factory|Application
+    public function todo($prodiverId): View|Factory|Application
     {
         $task = $this->todoService->taskList($prodiverId);
 
         return view('todo', [
             'tasks'                  => $task["schedule"],
-            "totalEstimatedduration" => $task["totalEstimatedduration"]]);
+            "totalEstimatedDuration" => $task["totalEstimatedDuration"]]);
 
+    }
+
+    public function  todoEqual($prodiverId): View|Factory|Application
+    {
+        $task = $this->todoService->taskListEqual($prodiverId);
+
+        return view('todo-alternative', [
+            'tasks'                  => $task["schedule"],
+            "totalEstimatedDuration" => $task["totalEstimatedDuration"]]);
     }
 
     public function taskList($prodiverId): JsonResponse
@@ -37,6 +46,19 @@ class TodoController extends Controller
 
         return response()->json(['data' => $task]);
     }
+
+
+    public function  taskListEqual($prodiverId): JsonResponse
+    {
+        $task = $this->todoService->taskListEqual($prodiverId);
+
+        return response()->json(['data' => $task]);
+
+    }
+
+
+
+
 
 
 }

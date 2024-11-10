@@ -20,8 +20,8 @@
             <tbody>
             @foreach ($tasks as $task)
                 <tr>
-                    <th scope="row">{{$task['period']}}</th>
-                    @foreach ($task['developers'] as $key =>$developer)
+                    <th scope="row">{{$task['periodName']}}</th>
+                    @foreach ($task['developers'][$task['period']] as $key =>$developer)
                         <td>
                             <div class="card col-md-12 my-2 p-1 border-warning text-muted">
                                 <h5 class="card-header p-0 m-0"> {{$key }}</h5>

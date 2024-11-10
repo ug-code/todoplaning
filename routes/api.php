@@ -16,6 +16,7 @@ Route::prefix('v1')->group(function () {
 
     Route::controller(TodoController::class)->group(function () {
         Route::get('taskList/{prodiverId}', 'taskList');
+        Route::get('taskListEqual/{prodiverId}', 'taskListEqual');
 
     });
 
